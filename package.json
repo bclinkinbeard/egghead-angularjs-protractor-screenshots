@@ -1,0 +1,23 @@
+{
+  "name": "egghead-angularjs-protractor-screenshots",
+  "version": "1.0.0",
+  "description": "egghead-angularjs-protractor-screenshots",
+  "main": "index.js",
+  "scripts": {
+    "test": "protractor test/protractor.conf.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bclinkinbeard/egghead-angularjs-protractor-screenshots.git"
+  },
+  "keywords": [],
+  "author": "Ben Clinkinbeard <ben.clinkinbeard@gmail.com> (http://benclinkinbeard.com/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/bclinkinbeard/egghead-angularjs-protractor-screenshots/issues"
+  },
+  "homepage": "https://github.com/bclinkinbeard/egghead-angularjs-protractor-screenshots",
+  "devDependencies": {
+    "protractor": "^1.4.0"
+  }
+}

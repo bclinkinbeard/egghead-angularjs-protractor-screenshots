@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html ng-app="hello-protractor">
+<head>
+	<title>hello protractor</title>
+	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/dist/css/bootstrap.css"/>
+	<link rel="stylesheet" type="text/css" href="src/app.css"/>
+	<script src="vendor/angular/angular.min.js"></script>
+	<script src="src/app.js"></script>
+</head>
+<body ng-controller="AppCtrl">
+<div class="container">
+	<div class="row  text-center">
+		<img src="src/images/265egghead.png" alt="egghead.io logo"/>
+
+		<h1>Hello Protractor</h1>
+	</div>
+	<div class="row text-center">
+		<button class="btn btn-primary"
+		        id="button1"
+		        ng-click="updateMessageText('button 1 clicked')">
+			Button 1
+		</button>
+	</div>
+
+	<div class="row h3 text-center">{{ messageText }}</div>
+</div>
+
+</body>
+</html>

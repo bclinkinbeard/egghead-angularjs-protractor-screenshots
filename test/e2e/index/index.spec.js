@@ -1,5 +1,5 @@
 var IndexPage = require('./IndexPage'),
-    fs = require('fs');
+    capture = require('../screenshot');
 
 describe('hello-protractor', function () {
 
@@ -7,6 +7,10 @@ describe('hello-protractor', function () {
 
   beforeEach(function() {
       page.get();
+  });
+
+  afterEach(function () {
+    capture.takeScreenshot(jasmine.getEnv().currentSpec);
   });
 
   describe('index', function () {

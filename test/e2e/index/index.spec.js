@@ -16,7 +16,7 @@ describe('hello-protractor', function () {
     if (spec.results().passed()) return;
 
     browser.takeScreenshot().then(function (png) {
-      var stream = fs.createWriteStream('grabs/' + specName + '.png');
+      var stream = fs.createWriteStream('screenshots/' + specName + '.png');
       stream.write(new Buffer(png, 'base64'));
       stream.end();
     });

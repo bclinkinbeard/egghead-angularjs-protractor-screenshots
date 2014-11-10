@@ -5,7 +5,7 @@ Code for the Better Protractor Testing with Screenshots video on egghead.io
 
 ```js
 var IndexPage = require('./IndexPage'),
-    fs = require('fs');
+    capture = require('../screenshot');
 
 describe('hello-protractor', function () {
 
@@ -16,16 +16,7 @@ describe('hello-protractor', function () {
   });
 
   afterEach(function () {
-    var spec = jasmine.getEnv().currentSpec;
-    var specName = spec.description.split(' ').join('_');
-
-    if (spec.results().passed()) return;
-
-    browser.takeScreenshot().then(function (png) {
-      var stream = fs.createWriteStream('grabs/' + specName + '.png');
-      stream.write(new Buffer(png, 'base64'));
-      stream.end();
-    });
+    capture.takeScreenshot(jasmine.getEnv().currentSpec);
   });
 
   describe('index', function () {
@@ -40,4 +31,28 @@ describe('hello-protractor', function () {
     });
   });
 });
+```
+
+```js
+var fs = require('fs');
+
+function capture (spec) {
+	var name = spec.description.split(' ').join('_');
+
+	browser.takeScreenshot().then(function (png) {
+		var stream = fs.createWriteStream('screenshots/' + name + '.png');
+		stream.write(new Buffer(png, 'base64'));
+		stream.end();
+	});
+}
+
+exports.takeScreenshot = function (spec) {
+	capture(spec);
+};
+
+exports.takeScreenshotOnFailure = function (spec) {
+	if (spec.results().passed()) return;
+
+	capture(spec);
+};
 ```

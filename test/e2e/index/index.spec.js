@@ -9,19 +9,6 @@ describe('hello-protractor', function () {
       page.get();
   });
 
-  afterEach(function () {
-    var spec = jasmine.getEnv().currentSpec;
-    var specName = spec.description.split(' ').join('_');
-
-    if (spec.results().passed()) return;
-
-    browser.takeScreenshot().then(function (png) {
-      var stream = fs.createWriteStream('screenshots/' + specName + '.png');
-      stream.write(new Buffer(png, 'base64'));
-      stream.end();
-    });
-  });
-
   describe('index', function () {
     it('should display the correct title', function () {
       expect(page.getTitle()).toBe('hello protractor');
